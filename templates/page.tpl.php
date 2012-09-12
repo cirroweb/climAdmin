@@ -1,21 +1,4 @@
-<div class="navbar navbar-top">
-  <div class="navbar-inner">
-    <div class="container">
-
-    <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="/sites/all/themes/climAdmin/images/logo_white.png" alt="<?php print t('Home'); ?>"/>
-      </a>
-    <?php endif; ?>
-   
-    <?php include 'nav.inc' ?>
-
-    </div>    
-  </div>
-</div>
-
-
-<div class="container">  
+<div class="container-fluid">  
   <header id="header" class="clearfix">
     <?php print $breadcrumb; ?>
     <?php print render($title_prefix); ?>

@@ -1,23 +1,23 @@
 //  CIRRO CUSTOM SASS
 //
 
+
+//  Stuff to hide
+// ----------------------------------------------------------------------------
+.filter-help,
+.tips,
+.grippie
+	display: none
+
+
 //  General Classes
 // ----------------------------------------------------------------------------
 
 #toolbar
-	display: none
-	//+box-shadow(none)
+	+box-shadow(none)
 
 body.toolbar
-	padding-top: 0 !important
-
-// Hide the dropdown on the toolbar
-#toolbar div.toolbar-menu a.toggle 
-	display: none
-
-// Adjust menu with no dropdown
-#toolbar div.toolbar-menu
-	padding: 5px 10px 5px 10px
+	padding-top: 50px !important
 
 #nav
 	float: right
@@ -283,112 +283,9 @@ div.vertical-tabs .vertical-tabs-list
 	.tabs
 		display: none
 
-// Global Analytes
+
+// Isotope
 // ----------------------------------------------------------------------------
-.page-admin-claro-analyte
-	td select.class,
-	td select.polarity,
-		width: 92px
-	td select.lloq,
-	td select.uloq,
-	td input.ert,
-	td input.rt_thresh,
-	td input.purity_thresh,
-	td select.epi_threshold
-		width: 70px
-
-
-
-// Global Definitions
-// ----------------------------------------------------------------------------
-.page-admin-claro-global-defs .group-wrap,
-.page-admin-claro-global-defs .item 
-	overflow: hidden
-	min-height: 20px
-	width: 160px
-	padding: 19px
-	margin: 10px
-	background-color: #f5f5f5
-	border: 1px solid #bbb
-	border: 1px solid rgba(0, 0, 0, 0.25)
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
-	border-radius: 4px
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07)
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07)
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07)   
-
-
-.page-admin-claro-global-defs .item:first-child 
-	width: 205px
-
-.page-admin-claro-global-defs .item h1 
-	background: none
-	text-transform: uppercase
-	border-bottom: 1px solid #CCC
-	-webkit-box-shadow: 0 1px 0 rgb(255, 255, 255)
-	-moz-box-shadow: 0 1px 0 rgb(255, 255, 255)
-	box-shadow: 0 1px 0 rgb(255, 255, 255)
-	margin: 0
-	padding: 0 0 15px 0
-	font-size: 16px
-
-
-.page-admin-claro-global-defs .group-content-wrap
-	padding: 10px 0px
-
-
-.page-admin-claro-global-defs .content 
-	width: 100%
-	overflow: hidden
-
-
-.page-admin-claro-global-defs .content ul
-	margin: 0
-	-moz-column-gap: 10px
-	-webkit-column-count: 2
-	-webkit-column-gap: 10px
-	column-count: 2
-	column-gap: 10px
-
-
-.page-admin-claro-global-defs li
-	list-style: none
-	font-size: 12px
-
-
-.page-admin-claro-global-defs li.title
-	list-style: none
-	font-weight: bold
-	font-size: 14px
-
-.page-admin-claro-global-defs li.sub-list li.sub-list 
-	border: none
-	width: 90%
-	margin: 0 0px 20px 0px
-	padding: 5px 0
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
-	border-radius: 4px
-	background-color: rgba(0,0,0,0.04)
-
-.page-admin-claro-global-defs li.sub-list 
-	list-style: none
-	margin: 0 0 15px 0
-
-.page-admin-claro-global-defs li.title li.sub-list 
-	border: 1px solid aqua
-
-
-.page-admin-claro-global-defs li.sub-list li.title 
-	list-style: none
-	border: none
-	padding: 0
-	font-size: 14px
-	font-weight: normal
-	text-transform: capitalize
-
-/**** Isotope Filtering ****/
 
 .isotope-item 
 	z-index: 2
@@ -396,8 +293,6 @@ div.vertical-tabs .vertical-tabs-list
 .isotope-hidden.isotope-item 
 	pointer-events: none
 	z-index: 1
-
-/**** Isotope CSS3 transitions ****/
 
 .isotope,
 .isotope .isotope-item
@@ -421,9 +316,6 @@ div.vertical-tabs .vertical-tabs-list
 	-o-transition-property: top, left, opacity
 	transition-property: transform, opacity
 
-
-/**** disabling Isotope CSS3 transitions ****/
-
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition 
@@ -433,8 +325,6 @@ div.vertical-tabs .vertical-tabs-list
 	-o-transition-duration: 0s
 	transition-duration: 0s
 
-
-/* disable CSS transitions for containers with infinite scrolling*/
 .isotope.infinite-scrolling 
 	-webkit-transition: none
 	-moz-transition: none

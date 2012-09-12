@@ -1430,13 +1430,11 @@ span.element-invisible, h2.element-invisible { display: none; }
 
 .invisible { visibility: hidden; }
 
-#toolbar { display: none; }
+.filter-help, .tips, .grippie { display: none; }
 
-body.toolbar { padding-top: 0 !important; }
+#toolbar { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
 
-#toolbar div.toolbar-menu a.toggle { display: none; }
-
-#toolbar div.toolbar-menu { padding: 5px 10px 5px 10px; }
+body.toolbar { padding-top: 50px !important; }
 
 #nav { float: right; }
 #nav ul a { color: #999999; -webkit-transition: 0.3s; -moz-transition: 0.3s; -ms-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
@@ -1543,49 +1541,18 @@ div.vertical-tabs .vertical-tabs-list li a .summary { color: #888888; font-size:
 
 .page-admin-people .tabs { display: none; }
 
-.page-admin-claro-analyte td select.class, .page-admin-claro-analyte td select.polarity { width: 92px; }
-.page-admin-claro-analyte td select.lloq, .page-admin-claro-analyte td select.uloq, .page-admin-claro-analyte td input.ert, .page-admin-claro-analyte td input.rt_thresh, .page-admin-claro-analyte td input.purity_thresh, .page-admin-claro-analyte td select.epi_threshold { width: 70px; }
-
-.page-admin-claro-global-defs .group-wrap, .page-admin-claro-global-defs .item { overflow: hidden; min-height: 20px; width: 160px; padding: 19px; margin: 10px; background-color: #f5f5f5; border: 1px solid #bbbbbb; border: 1px solid rgba(0, 0, 0, 0.25); -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07); }
-
-.page-admin-claro-global-defs .item:first-child { width: 205px; }
-
-.page-admin-claro-global-defs .item h1 { background: none; text-transform: uppercase; border-bottom: 1px solid #cccccc; -webkit-box-shadow: 0 1px 0 white; -moz-box-shadow: 0 1px 0 white; box-shadow: 0 1px 0 white; margin: 0; padding: 0 0 15px 0; font-size: 16px; }
-
-.page-admin-claro-global-defs .group-content-wrap { padding: 10px 0px; }
-
-.page-admin-claro-global-defs .content { width: 100%; overflow: hidden; }
-
-.page-admin-claro-global-defs .content ul { margin: 0; -moz-column-gap: 10px; -webkit-column-count: 2; -webkit-column-gap: 10px; column-count: 2; column-gap: 10px; }
-
-.page-admin-claro-global-defs li { list-style: none; font-size: 12px; }
-
-.page-admin-claro-global-defs li.title { list-style: none; font-weight: bold; font-size: 14px; }
-
-.page-admin-claro-global-defs li.sub-list li.sub-list { border: none; width: 90%; margin: 0 0px 20px 0px; padding: 5px 0; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-color: rgba(0, 0, 0, 0.04); }
-
-.page-admin-claro-global-defs li.sub-list { list-style: none; margin: 0 0 15px 0; }
-
-.page-admin-claro-global-defs li.title li.sub-list { border: 1px solid aqua; }
-
-.page-admin-claro-global-defs li.sub-list li.title { list-style: none; border: none; padding: 0; font-size: 14px; font-weight: normal; text-transform: capitalize; }
-
-/*** Isotope Filtering *** */
 .isotope-item { z-index: 2; }
 
 .isotope-hidden.isotope-item { pointer-events: none; z-index: 1; }
 
-/*** Isotope CSS3 transitions *** */
 .isotope, .isotope .isotope-item { -webkit-transition-duration: 0.8s; -moz-transition-duration: 0.8s; -ms-transition-duration: 0.8s; -o-transition-duration: 0.8s; transition-duration: 0.8s; }
 
 .isotope { -webkit-transition-property: height, width; -moz-transition-property: height, width; -ms-transition-property: height, width; -o-transition-property: height, width; transition-property: height, width; }
 
 .isotope .isotope-item { -webkit-transition-property: -webkit-transform, opacity; -moz-transition-property: -moz-transform, opacity; -ms-transition-property: -ms-transform, opacity; -o-transition-property: top, left, opacity; transition-property: transform, opacity; }
 
-/*** disabling Isotope CSS3 transitions *** */
 .isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition { -webkit-transition-duration: 0s; -moz-transition-duration: 0s; -ms-transition-duration: 0s; -o-transition-duration: 0s; transition-duration: 0s; }
 
-/* disable CSS transitions for containers with infinite scrolling */
 .isotope.infinite-scrolling { -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; transition: none; }
 
 .clearfix { *zoom: 1; }
@@ -1596,39 +1563,6 @@ div.vertical-tabs .vertical-tabs-list li a .summary { color: #888888; font-size:
 
 .input-block-level { display: block; width: 100%; min-height: 28px; /* Make inputs at least the height of their button counterpart */ /* Makes inputs behave like true block-level elements */ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
 
-.hidden { display: none; visibility: hidden; }
-
-.visible-phone { display: none; }
-
-.visible-tablet { display: none; }
-
-.visible-desktop { display: block; }
-
-.hidden-phone { display: block; }
-
-.hidden-tablet { display: block; }
-
-.hidden-desktop { display: none; }
-
-@media (max-width: 767px) { .visible-phone { display: block; }
-  .hidden-phone { display: none; }
-  .hidden-desktop { display: block; }
-  .visible-desktop { display: none; } }
-@media (min-width: 768px) and (max-width: 979px) { .visible-tablet { display: block; }
-  .hidden-tablet { display: none; }
-  .hidden-desktop { display: block; }
-  .visible-desktop { display: none; } }
-@media (max-width: 480px) { .nav-collapse { -webkit-transform: translate3d(0, 0, 0); }
-  .page-header h1 small { display: block; line-height: 18px; }
-  input[type="checkbox"], input[type="radio"] { border: 1px solid #cccccc; }
-  .form-horizontal .control-group > label { float: none; width: auto; padding-top: 0; text-align: left; }
-  .form-horizontal .controls { margin-left: 0; }
-  .form-horizontal .control-list { padding-top: 0; }
-  .form-horizontal .form-actions { padding-left: 10px; padding-right: 10px; }
-  .modal { position: absolute; top: 10px; left: 10px; right: 10px; width: auto; margin: 0; }
-  .modal.fade.in { top: auto; }
-  .modal-header .close { padding: 10px; margin: -10px; }
-  .carousel-caption { position: static; } }
 @media (max-width: 767px) { body { padding-left: 20px; padding-right: 20px; }
   .navbar-fixed-top { margin-left: -20px; margin-right: -20px; } }
 @media (min-width: 768px) and (max-width: 979px) { .row { margin-left: -20px; *zoom: 1; }
