@@ -32,7 +32,7 @@
 
     <div id="footer">
       <?php print $feed_icons; ?>
-    </div>
+    </div><div>dsa</div>
 
   </div>
 </div>
