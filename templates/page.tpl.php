@@ -32,8 +32,6 @@
 
     <div id="footer">
       <?php print $feed_icons; ?>
-      <div class="test-div"><p>This hopefully won't appear in the climAdmin repository...</p></div>
-      
     </div>
 
   </div>
