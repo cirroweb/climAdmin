@@ -28,14 +28,20 @@ body.toolbar
 			.icon-user
 				+opacity(50)
 			&.active
-				color: $white
+				color: white
 			&:hover
 				text-decoration: none
-				color: $white
+				color: white
 			li
 				display: inline
 				list-style: none
 				padding: 0 0 0 30px
+				
+.right
+	float: right
+	
+.left
+	float: left
 
 
 div.admin .left
@@ -69,6 +75,16 @@ div.admin-panel
 		font-size: 11.5px
 		color: $grayLight
 		font-style: italic
+		
+ul.admin-list
+	margin: 0
+	padding: 0
+	li.leaf
+		list-style: none
+		list-style-image: none
+		border-bottom: 1px solid #CCC
+		padding: 10px 0
+		margin: 0 0 7px 0
 
 .description
 	font-size: 11.5px
@@ -159,11 +175,94 @@ tr.draggable
 .orange
 	color: $orange
 
-.light-orange
-	color: $light-orange
+.orange
+	color: $orange
 
 .confirmed
 	//color: lighten(black, 65)
+
+// ADMIN TABS
+// ----------------------------------------------------------------------------
+
+ul.primary
+	border-bottom: none
+	margin-left: 0
+	list-style: none
+	text-align: center
+	@include clearfix()
+	li 
+		display: inline
+		a
+			display: inline-block
+			padding: 5px 14px
+			background-color: #fff
+			border: 1px solid #00C
+			@include border-radius(15px)
+			&:hover 
+				text-decoration: none
+				background-color: #f5f5f5
+				border: 1px solid #ccc
+			&.active
+				border: 1px solid #ccc
+				background-color: #f5f5f5
+
+ul.secondary
+	border-bottom: none
+	margin: 20px 0
+	padding: 0
+	ul.secondary
+		border-bottom: none
+		margin-left: 0
+		list-style: none
+		text-align: left
+		@include clearfix()
+		li 
+			display: inline
+			border: none
+			padding: 0 1em 0 0
+			a
+				display: inline-block
+				padding: 1px 10px
+				background-color: #fff
+				border: 1px solid #ddd
+				font-size: 11px
+				@include border-radius(15px)
+				&:hover 
+					text-decoration: none
+					background-color: #f5f5f5
+					border: 1px solid #ccc
+				&.active
+					border: 1px solid #ccc
+					background-color: #f5f5f5
+
+div.action-links
+	margin: 20px 0 0 0
+	padding: 0
+	list-style-type: none
+	overflow: hidden
+
+div.action-links .action-btn
+	border: 1px solid $neonYellow
+	padding: 50px 0
+	text-align: center
+	+border-radius(5px)
+	font-size: 16px
+	color: #333
+	background: $neonYellow
+	font-weight: bold
+	&:hover
+		border: 1px solid #aaa
+
+ul.action-links a
+	padding-left: 15px
+	background: transparent url(../images/add.png) no-repeat 0 center
+	line-height: 18px
+	font-weight: bold
+	position: relative
+
+.item-list ul li
+	margin: 0
+
 
 // Header
 // ----------------------------------------------------------------------------
@@ -176,7 +275,7 @@ tr.draggable
 #un
 	float: right
 	font-size: 11px
-	color: $white
+	color: white
 
 .theme-selector
 	float: left
@@ -268,7 +367,7 @@ div.vertical-tabs .vertical-tabs-list
 .vertical-tabs .nav-tabs .active > a,
 .vertical-tabs .nav-tabs .active > a:hover
 	border-color: #ddd transparent #ddd #ddd
-	*border-right-color: $white
+	*border-right-color: white
 
 
 // User Page
@@ -276,13 +375,6 @@ div.vertical-tabs .vertical-tabs-list
 .page-user
 	.tabs
 		display: none
-
-// People Page
-// ----------------------------------------------------------------------------
-.page-admin-people
-	.tabs
-		display: none
-
 
 // Isotope
 // ----------------------------------------------------------------------------
