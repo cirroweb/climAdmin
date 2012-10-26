@@ -34,6 +34,7 @@ a
 		outline-offset: -2px
 	&:hover, &:active
 		outline: 0
+		text-decoration: none
 
 sub
 	position: relative
@@ -135,7 +136,7 @@ a
 	text-decoration: none
 	&:hover
 		color: $linkColorHover
-		text-decoration: underline
+		text-decoration: none
 
 .img-rounded
 	-webkit-border-radius: 6px
@@ -463,16 +464,16 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small
 	color: $headingsSmallColor
 
 h1
-	font-size: 36px
-	line-height: 40px
+	font-size: 27px
+	line-height: 34px
 
 h2
-	font-size: 30px
-	line-height: 40px
+	font-size: 21px
+	line-height: 27.3px
 
 h3
-	font-size: 24px
-	line-height: 40px
+	font-size: 18px
+	line-height: 23.3px
 
 h4
 	font-size: 18px
@@ -671,6 +672,7 @@ legend
 	line-height: 40px
 	color: #333333
 	border: 0
+	font-weight: 300
 	border-bottom: 1px solid #e5e5e5
 	small
 		font-size: 15px
@@ -2400,9 +2402,10 @@ button.close
 input[type="submit"]
 	display: inline-block
 	*display: inline
-	padding: 4px 14px
+	padding: 4px 20px
 	margin-bottom: 0
 	*margin-left: .3em
+	margin-right: 10px
 	font-size: 14px
 	line-height: 20px
 	*line-height: 20px
@@ -2424,9 +2427,9 @@ input[type="submit"]
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)
 	border-color: #e6e6e6 #e6e6e6 #bfbfbf
 	border-bottom-color: #a2a2a2
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
-	border-radius: 4px
+	-webkit-border-radius: 15px
+	-moz-border-radius: 15px
+	border-radius: 15px
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0)
 	filter: progid:dximagetransform.microsoft.gradient(enabled=false)
 	*zoom: 1
@@ -2511,7 +2514,7 @@ input
 	&[type="submit"].btn-block, &[type="reset"].btn-block, &[type="button"].btn-block
 		width: 100%
 
-.btn-primary.active, .btn-warning.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active
+.btn-primary.active, .btn-warning.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active, input[value="Save"]
 	color: rgba(255, 255, 255, 0.75)
 
 .btn,
@@ -2629,7 +2632,8 @@ input[type="submit"]
 	&:active, &.active
 		background-color: #24748c \9
 
-.btn-inverse
+.btn-inverse,
+input[value="Save"]
 	color: #ffffff
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
 	background-color: #363636
