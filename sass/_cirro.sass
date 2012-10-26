@@ -14,7 +14,10 @@
 // ----------------------------------------------------------------------------
 
 #toolbar
+	background: none
 	+box-shadow(none)
+	div.toolbar-menu
+		background: rgba(0,0,0,0.7)
 
 body.toolbar
 	padding-top: 50px !important
@@ -42,6 +45,10 @@ body.toolbar
 	
 .left
 	float: left
+
+label
+	strong
+		font-weight: 300
 
 
 div.admin .left
@@ -88,6 +95,16 @@ ul.admin-list
 		a
 			font-size: 15px
 			font-weight: 300
+	li
+		margin: 0 0 7px 0
+		border-bottom: 1px solid #CCC
+		padding: 10px 0
+		.label
+			padding: 0
+			background-color: transparent
+			text-shadow: none
+			font-size: 15px
+			font-weight: 300
 
 .description
 	font-size: 11px
@@ -101,12 +118,12 @@ ul.admin-list
 	line-height: 25px
 
 #permissions td.module 
-	background: $blue
-	color: white
+	background: #ddd
+	font-size: 15px
+	font-weight: 300
 
 .fieldset-title
-	font-size: 20px
-	font-weight: bold
+	font-size: 18px
 
 fieldset.filter-wrapper
 	margin: 0 0 30px 0
@@ -159,6 +176,12 @@ tr.draggable
 			background-color: $neonYellow
 			div.description
 				color: $textColor
+
+table.sticky-header
+	z-index: 400
+	+border-radius(0)
+	* th
+		+border-radius(0 !important)
 
 a#edit-cancel
 	margin: 30px
@@ -216,15 +239,16 @@ ul.primary
 			display: inline-block
 			padding: 5px 14px
 			background-color: #fff
-			border: 1px solid #00C
-			@include border-radius(15px)
+			border: 1px solid #6A0BC1
+			@include border-radius(2px)
 			&:hover 
 				text-decoration: none
 				background-color: #f5f5f5
 				border: 1px solid #ccc
 			&.active
-				border: 1px solid #ccc
-				background-color: #f5f5f5
+				border: 1px solid $purple
+				background-color: lighten($purple, 0.5)
+				color: white
 
 ul.secondary
 	border-bottom: none
@@ -246,7 +270,8 @@ ul.secondary
 				background-color: #fff
 				border: 1px solid #ddd
 				font-size: 11px
-				@include border-radius(15px)
+				color: black
+				@include border-radius(2px)
 				&:hover 
 					text-decoration: none
 					background-color: #f5f5f5
@@ -275,10 +300,16 @@ div.action-links .action-btn
 
 ul.action-links a
 	padding-left: 15px
-	background: transparent url(../images/add.png) no-repeat 0 center
 	line-height: 18px
-	font-weight: bold
 	position: relative
+	&:before
+		content: "+"
+		position: absolute
+		left: 3px
+		top: -4px
+		font-size: 16px
+		font-weight: bold
+		
 
 .item-list ul li
 	margin: 0
@@ -319,6 +350,18 @@ div.vertical-tabs fieldset
 	border: 0
 	padding: 0
 	margin: 0
+
+.fieldset-wrapper
+	margin-bottom: 30px
+	
+.exposed-filters 
+	.filters
+		width: 100%
+		float: none
+	.form-item
+		margin: 0 20px 0 0
+		width: 220px
+		float: left
 
 div.vertical-tabs fieldset div.fieldset-wrapper 
 	top: -20px

@@ -678,7 +678,7 @@ legend
 		font-size: 15px
 		color: $grayLight
 
-label, input, button, select, textarea
+input, button, textarea
 	font-size: 14px
 	font-weight: normal
 	line-height: 20px
@@ -690,17 +690,73 @@ label
 	display: block
 	margin-bottom: 5px
 
-select, textarea
+.exposed-filters .form-item label,
+.exposed-filters .form-item select
+	width: 220px
+
+.form-type-select
+	label
+		position: relative !important
+		width: 220px	
+		display: block
+	select
+		width: 220px	
+
+select
+	padding: 7px
+	margin: 0
+	background: white
+	border: none
+	outline: none
+	display: inline-block
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	cursor: pointer
+	+border-radius(2px)
+	&:hover
+		border: 1px solid #333
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+	select
+		padding-right: 18px
+
+label
+	position: relative
+	
+.form-type-select label:after
+	content: ''
+	font: 11px "Consolas", monospace
+	color: #aaa
+	right: 8px
+	top: 27px
+	padding: 0 0 2px
+	border-bottom: 1px solid #ddd
+	position: absolute
+	pointer-events: none
+
+.form-type-select label:before
+	content: ''
+	right: 6px
+	top: 27px
+	width: 20px 
+	height: 20px
+	background: url(../images/down_arrow.png) no-repeat center center
+	position: absolute
+	pointer-events: none
+	display: block
+
+textarea
 	display: inline-block
 	height: 20px
 	padding: 4px 6px
 	margin-bottom: 9px
-	font-size: 14px
+	font-size: 13px
+	font-weight: 300
 	line-height: 20px
-	color: #555555
-	-webkit-border-radius: 3px
-	-moz-border-radius: 3px
-	border-radius: 3px
+	-webkit-border-radius: 2px
+	-moz-border-radius: 2px
+	border-radius: 2px
 
 input
 	&[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"]
@@ -708,24 +764,25 @@ input
 		height: 20px
 		padding: 4px 6px
 		margin-bottom: 9px
-		font-size: 14px
+		font-size: 13px
+		font-weight: 300
 		line-height: 20px
-		color: #555555
-		-webkit-border-radius: 3px
-		-moz-border-radius: 3px
-		border-radius: 3px
+		-webkit-border-radius: 2px
+		-moz-border-radius: 2px
+		border-radius: 2px
 
 .uneditable-input
 	display: inline-block
 	height: 20px
 	padding: 4px 6px
 	margin-bottom: 9px
-	font-size: 14px
+	font-size: 13px
+	font-weight: 300
 	line-height: 20px
 	color: #555555
-	-webkit-border-radius: 3px
-	-moz-border-radius: 3px
-	border-radius: 3px
+	-webkit-border-radius: 2px
+	-moz-border-radius: 2px
+	border-radius: 2px
 
 input, textarea, .uneditable-input
 	width: 206px
@@ -734,64 +791,29 @@ textarea
 	height: auto
 	background-color: #ffffff
 	border: 1px solid #cccccc
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s
-	-moz-transition: border linear 0.2s, box-shadow linear 0.2s
-	-o-transition: border linear 0.2s, box-shadow linear 0.2s
-	transition: border linear 0.2s, box-shadow linear 0.2s
 
 input
 	&[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"]
 		background-color: #ffffff
 		border: 1px solid #cccccc
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-		-webkit-transition: border linear 0.2s, box-shadow linear 0.2s
-		-moz-transition: border linear 0.2s, box-shadow linear 0.2s
-		-o-transition: border linear 0.2s, box-shadow linear 0.2s
-		transition: border linear 0.2s, box-shadow linear 0.2s
 
 .uneditable-input
 	background-color: #ffffff
 	border: 1px solid #cccccc
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
-	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s
-	-moz-transition: border linear 0.2s, box-shadow linear 0.2s
-	-o-transition: border linear 0.2s, box-shadow linear 0.2s
-	transition: border linear 0.2s, box-shadow linear 0.2s
 
 textarea:focus
-	border-color: rgba(82, 168, 236, 0.8)
+	border-color: $purple
 	outline: 0
-	outline: thin dotted \9
-	// IE6-9
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
+
 
 input
 	&[type="text"]:focus, &[type="password"]:focus, &[type="datetime"]:focus, &[type="datetime-local"]:focus, &[type="date"]:focus, &[type="month"]:focus, &[type="time"]:focus, &[type="week"]:focus, &[type="number"]:focus, &[type="email"]:focus, &[type="url"]:focus, &[type="search"]:focus, &[type="tel"]:focus, &[type="color"]:focus
-		border-color: rgba(82, 168, 236, 0.8)
+		border-color: $purple
 		outline: 0
-		outline: thin dotted \9
-		// IE6-9
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
-		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
 
 .uneditable-input:focus
-	border-color: rgba(82, 168, 236, 0.8)
+	border-color: $purple
 	outline: 0
-	outline: thin dotted \9
-	// IE6-9
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6)
 
 input
 	&[type="radio"], &[type="checkbox"]
@@ -803,7 +825,7 @@ input
 	&[type="file"], &[type="image"], &[type="submit"], &[type="reset"], &[type="button"], &[type="radio"], &[type="checkbox"]
 		width: auto
 
-select, input[type="file"]
+input[type="file"]
 	height: 30px
 	// In IE7, the height of the select element cannot be changed by height, only font-size
 	*margin-top: 4px
@@ -816,25 +838,16 @@ select
 	border: 1px solid #cccccc
 	&[multiple], &[size]
 		height: auto
-	&:focus
-		outline: thin dotted #333
-		outline: 5px auto -webkit-focus-ring-color
-		outline-offset: -2px
+
 
 input
 	&[type="file"]:focus, &[type="radio"]:focus, &[type="checkbox"]:focus
-		outline: thin dotted #333
-		outline: 5px auto -webkit-focus-ring-color
-		outline-offset: -2px
 
 .uneditable-input, .uneditable-textarea
 	color: $grayLight
 	cursor: not-allowed
 	background-color: #fcfcfc
 	border-color: #cccccc
-	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025)
-	-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025)
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025)
 
 .uneditable-input
 	overflow: hidden
@@ -849,6 +862,7 @@ input:-moz-placeholder, textarea:-moz-placeholder, input:-ms-input-placeholder, 
 	
 // CHECK BOXES AND RADIO BUTTONS
 // ----------------------------------------------------------------------------
+
 input[type='radio']
 	width: 15px
 	height: 15px
@@ -860,16 +874,6 @@ input[type='radio']
 	outline: none
 	vertical-align: middle
 	background-color: #fff
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f4f6f8), color-stop(100%, #e6e7e9))
-	background: -webkit-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -moz-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -o-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -ms-linear-gradient(#f4f6f8,#e6e7e9)
-	background: linear-gradient(#f4f6f8,#e6e7e9)
-	-moz-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	-webkit-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	-o-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
 	+border-radius(15px)
 	-moz-appearance: none
 	-webkit-appearance: none
@@ -877,27 +881,16 @@ input[type='radio']
 
 
 input[type="checkbox"]
-	width: 20px
-	height: 20px
+	width: 22px
+	height: 22px
 	padding: 0
 	margin-right: 4px
 	margin-top: -2px
 	margin-left: 2px
-	border: none
+	border: 1px solid #CCC
 	outline: none
 	vertical-align: middle
-	background-color: #fff
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f4f6f8), color-stop(100%, #e6e7e9))
-	background: -webkit-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -moz-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -o-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -ms-linear-gradient(#f4f6f8,#e6e7e9)
-	background: linear-gradient(#f4f6f8,#e6e7e9)
-	-moz-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	-webkit-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	-o-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	+border-radius(4px)
+	background-color: transparent
 	-moz-appearance: none
 	-webkit-appearance: none
 	appearance: none
@@ -928,37 +921,13 @@ input[type="radio"]:checked
 	-o-box-shadow: rgba(255,255,255,0.9) 0px 1px 1px,inset rgba(0,0,0,0.5) 0px 2px 5px,inset rgba(0,0,0,0.4) 0px 0 1px,inset rgba(0,0,0,0.3) 0px 1px 0
 	box-shadow: rgba(255,255,255,0.9) 0px 1px 1px,inset rgba(0,0,0,0.5) 0px 2px 5px,inset rgba(0,0,0,0.4) 0px 0 1px,inset rgba(0,0,0,0.3) 0px 1px 0
 
-
-
 input[type="radio"]:checked:before
 	margin: 4px 0 0 4px
 	content: " "
 	width: 7px
 	height: 7px
-	+border-radius(11px)
-	background-position: 0 0
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f4f6f8), color-stop(100%, #e6e7e9))
-	background: -webkit-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -moz-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -o-linear-gradient(#f4f6f8,#e6e7e9)
-	background: -ms-linear-gradient(#f4f6f8,#e6e7e9)
-	background: linear-gradient(#f4f6f8,#e6e7e9)
-	-moz-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	-webkit-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	-o-box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-	box-shadow: rgba(0,0,0,0.37) 0px 1px 1px,rgba(0,0,0,0.25) 0px 0 1px,inset #fff 0px 2px 0,inset rgba(255,255,255,0.65) 0px 0 1px,inset rgba(0,0,0,0.05) 0px -2px 0
-
-input[type="checkbox"]:active:not(:disabled)
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e6e7e9), color-stop(100%, #f4f6f8))
-	background: -webkit-linear-gradient(#e6e7e9,#f4f6f8)
-	background: -moz-linear-gradient(#e6e7e9,#f4f6f8)
-	background: -o-linear-gradient(#e6e7e9,#f4f6f8)
-	background: -ms-linear-gradient(#e6e7e9,#f4f6f8)
-	background: linear-gradient(#e6e7e9,#f4f6f8)
-	-moz-box-shadow: rgba(255,255,255,0.9) 0px 1px 1px,inset rgba(0,0,0,0.5) 0px 2px 5px,inset rgba(0,0,0,0.4) 0px 0 1px,inset rgba(0,0,0,0.3) 0px 1px 0
-	-webkit-box-shadow: rgba(255,255,255,0.9) 0px 1px 1px,inset rgba(0,0,0,0.5) 0px 2px 5px,inset rgba(0,0,0,0.4) 0px 0 1px,inset rgba(0,0,0,0.3) 0px 1px 0
-	-o-box-shadow: rgba(255,255,255,0.9) 0px 1px 1px,inset rgba(0,0,0,0.5) 0px 2px 5px,inset rgba(0,0,0,0.4) 0px 0 1px,inset rgba(0,0,0,0.3) 0px 1px 0
-	box-shadow: rgba(255,255,255,0.9) 0px 1px 1px,inset rgba(0,0,0,0.5) 0px 2px 5px,inset rgba(0,0,0,0.4) 0px 0 1px,inset rgba(0,0,0,0.3) 0px 1px 0
+	background: white
+	+border-radius(7px)
 
 input[type="checkbox"]:before
 	position: absolute
@@ -978,13 +947,11 @@ input[type="checkbox"]:checked:before
 // Indent the labels to position radios/checkboxes as hanging
 .radio,
 .checkbox 
-	padding-left: 18px
+	padding-left: 5px
 
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] 
 	float: left
-	margin-left: -18px
-
 
 // Move the options list down to align with labels
 .controls > .radio:first-child,
@@ -1006,11 +973,7 @@ input[type="checkbox"]:checked:before
 
 .radio, .checkbox
 	min-height: 18px
-	padding-left: 18px
-
-.radio input[type="radio"], .checkbox input[type="checkbox"]
-	float: left
-	margin-left: -18px
+	padding-left: 5px
 
 .controls >
 	.radio:first-child, .checkbox:first-child
@@ -1475,6 +1438,9 @@ table
 .table-condensed
 	th, td
 		padding: 4px 5px
+		
+table tr.even
+	background-color: white
 
 .table-bordered,
 table
@@ -3661,13 +3627,9 @@ div.messages
 			background-color: #000000 \9
 
 .breadcrumb
-	padding: 8px 15px
 	margin: 0 0 20px
 	list-style: none
-	background-color: #f5f5f5
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
-	border-radius: 4px
+	font-weight: 300
 	li
 		display: inline-block
 		*display: inline
@@ -3678,6 +3640,12 @@ div.messages
 		color: #ccc
 	.active
 		color: $grayLight
+	a
+		color: black
+		margin: 0 5px
+		&:first-child
+			margin-left: 0
+	
 
 .pagination
 	height: 40px
