@@ -68,6 +68,9 @@ button, input, select, textarea
 	font-size: 100%
 	vertical-align: middle
 
+html.js input.form-autocomplete 
+	background-image: none
+
 button, input
 	*overflow: visible
 	line-height: normal
@@ -134,6 +137,7 @@ body
 a
 	color: $linkColor
 	text-decoration: none
+	font-weight: 300
 	&:hover
 		color: $linkColorHover
 		text-decoration: none
@@ -445,7 +449,7 @@ cite
 	color: $red
 
 .text-info
-	color: $lightBlue
+	color: $blue
 
 .text-success
 	color: $green
@@ -663,13 +667,15 @@ fieldset
 	margin: 0
 	border: 0
 
+html.js fieldset.collapsed
+	height: auto
+
 legend
 	display: block
 	width: 100%
-	padding: 0
-	margin-bottom: 20px
+	padding: 0 0 5px 0
+	margin-bottom: 10px
 	font-size: 21px
-	line-height: 40px
 	color: #333333
 	border: 0
 	font-weight: 300
@@ -694,7 +700,11 @@ label
 .exposed-filters .form-item select
 	width: 220px
 
-.form-type-select
+.filter-wrapper .form-item
+	padding: 0	
+
+.form-type-select,
+.filter-wrapper .form-item
 	label
 		position: relative !important
 		width: 220px	
@@ -705,7 +715,7 @@ label
 select
 	padding: 7px
 	margin: 0
-	background: white
+	background: url(../images/down_arrow.png) white no-repeat 96% center
 	border: none
 	outline: none
 	display: inline-block
@@ -724,32 +734,10 @@ select
 label
 	position: relative
 	
-.form-type-select label:after
-	content: ''
-	font: 11px "Consolas", monospace
-	color: #aaa
-	right: 8px
-	top: 27px
-	padding: 0 0 2px
-	border-bottom: 1px solid #ddd
-	position: absolute
-	pointer-events: none
-
-.form-type-select label:before
-	content: ''
-	right: 6px
-	top: 29px
-	width: 20px 
-	height: 20px
-	background: url(../images/down_arrow.png) no-repeat center center
-	position: absolute
-	pointer-events: none
-	display: block
 
 textarea
 	display: inline-block
 	height: 20px
-	padding: 4px 6px
 	margin-bottom: 9px
 	font-size: 13px
 	font-weight: 300
@@ -762,7 +750,6 @@ input
 	&[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"]
 		display: inline-block
 		height: 20px
-		padding: 4px 6px
 		margin-bottom: 9px
 		font-size: 13px
 		font-weight: 300
@@ -770,11 +757,13 @@ input
 		-webkit-border-radius: 2px
 		-moz-border-radius: 2px
 		border-radius: 2px
+		max-width: 530px
+		width: 100%
+		padding: 4px 6px !important
 
 .uneditable-input
 	display: inline-block
 	height: 20px
-	padding: 4px 6px
 	margin-bottom: 9px
 	font-size: 13px
 	font-weight: 300
@@ -784,8 +773,20 @@ input
 	-moz-border-radius: 2px
 	border-radius: 2px
 
-input, textarea, .uneditable-input
-	width: 206px
+.uneditable-input
+	max-width: 530px
+	width: 100%
+	padding: 4px 6px !important
+
+label
+	padding: 0
+	max-width: 530px
+
+
+textarea, .form-textarea-wrapper textarea,
+	max-width: 544px
+	width: 100%
+	padding: 4px 6px !important
 
 textarea
 	height: auto
@@ -802,17 +803,17 @@ input
 	border: 1px solid #cccccc
 
 textarea:focus
-	border-color: $purple
+	border-color: $blue
 	outline: 0
 
 
 input
 	&[type="text"]:focus, &[type="password"]:focus, &[type="datetime"]:focus, &[type="datetime-local"]:focus, &[type="date"]:focus, &[type="month"]:focus, &[type="time"]:focus, &[type="week"]:focus, &[type="number"]:focus, &[type="email"]:focus, &[type="url"]:focus, &[type="search"]:focus, &[type="tel"]:focus, &[type="color"]:focus
-		border-color: $purple
+		border-color: $blue
 		outline: 0
 
 .uneditable-input:focus
-	border-color: $purple
+	border-color: $blue
 	outline: 0
 
 input
@@ -939,6 +940,9 @@ input[type="checkbox"]:checked:before
 	width: 16px
 	height: 13px
 	background-position: 0 0
+	
+input[type="checkbox"]:checked
+	background-color: white
 
 .form-checkboxes .form-item, .form-radios .form-item
 	margin-top: 20px
@@ -1145,9 +1149,9 @@ input
 			border-color: $green
 	&.info
 		> label, .help-block, .help-inline, .checkbox, .radio, input, select, textarea
-			color: $lightBlue
+			color: $blue
 		input, select, textarea
-			border-color: $lightBlue
+			border-color: $blue
 			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
 			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
 			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
@@ -1157,9 +1161,9 @@ input
 			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3
 			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3
 		.input-prepend .add-on, .input-append .add-on
-			color: $lightBlue
+			color: $blue
 			background-color: #d9edf7
-			border-color: $lightBlue
+			border-color: $blue
 
 input:focus:required:invalid, textarea:focus:required:invalid, select:focus:required:invalid
 	color: $red
@@ -1413,14 +1417,17 @@ table
 table
 	width: 100%
 	margin-bottom: 20px
+	margin-top: 50px
 	th, td
 		padding: 8px
 		line-height: 20px
 		text-align: left
 		vertical-align: top
-		border-top: 1px solid #dddddd
+		border-top: 1px solid #CCC
 	th
 		font-weight: bold
+		a 
+			font-weight: bold
 	thead th
 		vertical-align: bottom
 	caption + thead tr:first-child
@@ -1433,26 +1440,35 @@ table
 		th, td
 			border-top: 0
 	tbody + tbody
-		border-top: 2px solid #dddddd
+		border-top: 2px solid #CCC
 
 .table-condensed
 	th, td
 		padding: 4px 5px
 		
-table tr.even
-	background-color: white
+table tr
+	&.even
+		background-color: white
+	&.odd
+		background-color: white
+
+tr.region-title
+	background: #EEE
+
+table tr.drag td
+	background: white !important
+
+table tr.drag-previous td
+	background: $pink !important
 
 .table-bordered,
 table
-	border: 1px solid #dddddd
+	border: 1px solid #CCC
 	border-collapse: separate
 	*border-collapse: collapse
 	border-left: 0
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
-	border-radius: 4px
 	th, td
-		border-left: 1px solid #dddddd
+		border-left: 1px solid #CCC
 	caption +
 		thead tr:first-child th
 			border-top: 0
@@ -1470,45 +1486,6 @@ table
 	tbody:first-child tr:first-child
 		th, td
 			border-top: 0
-	thead:first-child tr:first-child th:first-child, tbody:first-child tr:first-child td:first-child
-		-webkit-border-top-left-radius: 4px
-		border-top-left-radius: 4px
-		-moz-border-radius-topleft: 4px
-	thead:first-child tr:first-child th:last-child, tbody:first-child tr:first-child td:last-child
-		-webkit-border-top-right-radius: 4px
-		border-top-right-radius: 4px
-		-moz-border-radius-topright: 4px
-	thead:last-child tr:last-child th:first-child, tbody:last-child tr:last-child td:first-child, tfoot:last-child tr:last-child td:first-child
-		-webkit-border-radius: 0 0 0 4px
-		-moz-border-radius: 0 0 0 4px
-		border-radius: 0 0 0 4px
-		-webkit-border-bottom-left-radius: 4px
-		border-bottom-left-radius: 4px
-		-moz-border-radius-bottomleft: 4px
-	thead:last-child tr:last-child th:last-child, tbody:last-child tr:last-child td:last-child, tfoot:last-child tr:last-child td:last-child
-		-webkit-border-bottom-right-radius: 4px
-		border-bottom-right-radius: 4px
-		-moz-border-radius-bottomright: 4px
-	caption +
-		thead tr:first-child th:first-child, tbody tr:first-child td:first-child
-			-webkit-border-top-left-radius: 4px
-			border-top-left-radius: 4px
-			-moz-border-radius-topleft: 4px
-	colgroup +
-		thead tr:first-child th:first-child, tbody tr:first-child td:first-child
-			-webkit-border-top-left-radius: 4px
-			border-top-left-radius: 4px
-			-moz-border-radius-topleft: 4px
-	caption +
-		thead tr:first-child th:last-child, tbody tr:first-child td:last-child
-			-webkit-border-top-right-radius: 4px
-			border-top-right-radius: 4px
-			-moz-border-radius-topleft: 4px
-	colgroup +
-		thead tr:first-child th:last-child, tbody tr:first-child td:last-child
-			-webkit-border-top-right-radius: 4px
-			border-top-right-radius: 4px
-			-moz-border-radius-topleft: 4px
 
 .table-striped tbody tr:nth-child(odd),
 table-striped tbody tr:nth-child(odd)
@@ -2480,7 +2457,7 @@ input
 	&[type="submit"].btn-block, &[type="reset"].btn-block, &[type="button"].btn-block
 		width: 100%
 
-.btn-primary.active, .btn-warning.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active, input[value="Save"]
+.btn-primary.active, .btn-warning.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active, input[value="Save"], form.confirmation input[type="submit"], input[value="Delete"]
 	color: rgba(255, 255, 255, 0.75)
 
 .btn,
@@ -2510,7 +2487,9 @@ input[type="submit"]
 	&:active, &.active
 		background-color: #003399 \9
 
-.btn-warning
+.btn-warning,
+form.confirmation input[type="submit"],
+input[value="Delete"]
 	color: #ffffff
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
 	background-color: #faa732
@@ -2886,7 +2865,7 @@ div.messages
 		border-color: #d6e9c6
 		background-image: none
 	&.warning
-		color: $lightBlue
+		color: $blue
 		background-color: #d9edf7
 		border-color: #bce8f1
 		background-image: none
@@ -2902,7 +2881,7 @@ div.messages
 	border-color: #eed3d7
 
 .alert-info
-	color: $lightBlue
+	color: $blue
 	background-color: #d9edf7
 	border-color: #bce8f1
 
@@ -3627,7 +3606,7 @@ div.messages
 			background-color: #000000 \9
 
 .breadcrumb
-	margin: 0 0 20px
+	margin: 0
 	list-style: none
 	font-weight: 300
 	li
@@ -3641,7 +3620,7 @@ div.messages
 	.active
 		color: $grayLight
 	a
-		color: black
+		color: $textColor
 		margin: 0 5px
 		&:first-child
 			margin-left: 0
@@ -4135,7 +4114,7 @@ a
 	background-color: #356635
 
 .label-info, .badge-info
-	background-color: $lightBlue
+	background-color: $blue
 
 .label-info[href], .badge-info[href]
 	background-color: #2d6987

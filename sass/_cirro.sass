@@ -110,12 +110,15 @@ ul.admin-list
 	font-size: 11px
 	color: $grayLight
 	font-weight: 300
+	margin-top: 5px
 
 .tabledrag-toggle-weight-wrapper
 	text-align: left
 
 .form-item .description
-	line-height: 25px
+	line-height: 1.3em
+	width: 100%
+	max-width: 530px
 
 #permissions td.module 
 	background: #ddd
@@ -239,15 +242,16 @@ ul.primary
 			display: inline-block
 			padding: 5px 14px
 			background-color: #fff
-			border: 1px solid #6A0BC1
+			border: 1px solid $grayLighter
 			@include border-radius(2px)
+			color: $grayLight
 			&:hover 
 				text-decoration: none
 				background-color: #f5f5f5
 				border: 1px solid #ccc
 			&.active
-				border: 1px solid $purple
-				background-color: lighten($purple, 0.5)
+				border: 1px solid $grayLight
+				background-color: $grayLight
 				color: white
 
 ul.secondary
@@ -270,7 +274,7 @@ ul.secondary
 				background-color: #fff
 				border: 1px solid #ddd
 				font-size: 11px
-				color: black
+				color: $textColor
 				@include border-radius(2px)
 				&:hover 
 					text-decoration: none
@@ -339,7 +343,7 @@ ul.action-links a
 // ----------------------------------------------------------------------------
 
 div.vertical-tabs-panes
-	padding: 20px
+	padding: 0
 
 div.vertical-tabs 
 	border: none
@@ -373,7 +377,7 @@ div.vertical-tabs .vertical-tabs-list
 	font-size: 1em
 	line-height: 1
 	padding: 0
-	width: 240px
+	width: 180px
 	li
 		background: #eee
 		+border-top-left-radius(4px)
@@ -391,14 +395,17 @@ div.vertical-tabs .vertical-tabs-list
 			margin-right: -1px
 			border: 1px solid #ccc
 			border-width: 1px 0 1px 1px
+			background: $bodyBackground
 			&:hover
-				background: white
+				background: $bodyBackground
 		a
 			color: #333
 			&:hover
 				border: none
 				outline: none
 				text-decoration: none
+				strong
+					text-decoration: none
 			.summary
 				color: #888
 				font-size: 11px
